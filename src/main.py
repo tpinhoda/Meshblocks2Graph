@@ -22,7 +22,7 @@ def main():
         os.path.join(project_dir, "parameters", "switchers.json")
     )
     # Creates and run the census processing pipeline
-    pipeline_locations = Pipeline("census", params, switchers["census"])
+    pipeline_locations = Pipeline("meshblocks", params, switchers["meshblocks"])
     pipeline_locations.run()
 
 

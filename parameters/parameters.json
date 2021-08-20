@@ -6,16 +6,9 @@
         "aggregation_level": "city"
         
     },
-    "census": {
-        "data_name": "census",
-        "url_data": "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2010/Resultados_do_Universo/Agregados_por_Setores_Censitarios/",
-        "ref_file": "Basico.csv",
-        "id_col": "Cod_setor",
-        "char_col_census": "V",
-        "char_na_values": "X",
-        "char_decimal": ",",
-        "na_threshold": 99,
-        "global_cols": 0,
-        "global_threshold": 0.90
+    "meshblocks": {
+        "data_name": "meshblocks",
+        "url_data": "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2018/Brasil/BR/br_municipios.zip",
+        "filename": "cities_meshblocks.zip"
     }   
 }

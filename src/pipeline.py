@@ -1,26 +1,24 @@
-"""Pipeline to process Brazilian socioeconomic data"""
+"""Pipeline to process meshblock data and generate spatial graph structure"""
 from dataclasses import dataclass, field
 from typing import Dict, Final, List
 import inspect
 from src.data import Data
-from src.census.raw import Raw as CensusRaw
-from src.census.interim import Interim as CensusInterim
-from src.census.processed import Processed as CensusProcessed
+from src.meshblocks.raw import Raw as MeshblocksRaw
+from src.meshblocks.processed import Processed as MeshblocksProcessed
 
 DATA_PROCESS_MAP: Final = {
-    "census": {
-        "raw": CensusRaw,
-        "interim": CensusInterim,
-        "processed": CensusProcessed,
+    "meshblocks": {
+        "raw": MeshblocksRaw,
+        "processed": MeshblocksProcessed,
     },
 }
 
 
 @dataclass
 class Pipeline:
-    """Represents a pipeline to process data.
+    """Pipeline to process meshblock data and generate spatial graph structure.
 
-    This object process socioeconomic data.
+    This object process meshblock data and generates spatial graph.
 
     Attributes
     ----------
@@ -37,7 +35,6 @@ class Pipeline:
     switchers: Dict[str, str] = field(default_factory=dict)
     __pipeline: List[str] = field(default_factory=list)
     __raw: Data = None
-    __interim: Data = None
     __processed: Data = None
 
     @staticmethod
@@ -75,12 +72,6 @@ class Pipeline:
         self.__raw = data_class(**parameters)
         return self.__raw
 
-    def init_interim(self):
-        """Initialize interim class"""
-        data_class = self._get_init_function("interim")
-        parameters = self._generate_parameters(data_class())
-        self.__interim = data_class(**parameters)
-        return self.__interim
 
     def init_processed(self):
         """Initialize processed class"""
@@ -97,7 +88,6 @@ class Pipeline:
         """Map the process initialization functions"""
         processes = {
             "raw": self.init_raw,
-            "interim": self.init_interim,
             "processed": self.init_processed,
         }
         return processes[process]()

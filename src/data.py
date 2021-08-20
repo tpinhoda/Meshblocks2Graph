@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Abstract class to represent Brazilian socioeconomic data."""
+"""Abstract class to represent meshblocks data."""
 import logging
 import shutil
 from dataclasses import dataclass
@@ -11,9 +11,9 @@ from typing import List
 
 @dataclass
 class Data(ABC):
-    """Represents an Brazilian socioeconomic data.
+    """Represents meshblock data.
 
-    This class is responsible to organize in folders the socioeconomic datasets.
+    This class is responsible to organize in folders the meshblock data.
 
     Attributes
     ----------
