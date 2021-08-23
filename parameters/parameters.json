@@ -2,13 +2,15 @@
     "global": {
         "region": "Brazil",
         "org": "IBGE",
-        "year": "2010",
+        "year": "2018",
         "aggregation_level": "city"
         
     },
     "meshblocks": {
         "data_name": "meshblocks",
         "url_data": "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2018/Brasil/BR/br_municipios.zip",
-        "filename": "cities_meshblocks.zip"
+        "filename": "Brazil.zip",
+        "id_col": "CD_GEOCMU",
+        "type_adj": "QUEEN"
     }   
 }

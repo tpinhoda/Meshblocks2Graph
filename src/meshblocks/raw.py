@@ -20,12 +20,12 @@ class Raw(Data):
     """
 
     url_data: str = None
+    aggregation_level: str = None
     filename: str = None
     
     # Get meshblock files
     def _download_city_meshblock_data(self) -> None:
         """Donwload raw election data"""
-        self._mkdir(self.filename.split(".")[0])
         self.logger_info("Downloading city meshblock data.")
         urlretrieve(self.url_data, os.path.join(self.cur_dir, self.filename))
 
@@ -64,11 +64,11 @@ class Raw(Data):
         self._remove_city_meshblock_zip_files()
 
     def run(self) -> None:
-        """Generate census raw data"""
+        """Generate meshblocks raw data"""
         self.init_logger_name(msg="Meshblocks (Raw)")
         self.init_state(state="raw")
         self.logger_info("Generating raw data.")
-        self._make_folders(folders=[self.data_name])
+        self._make_folders(folders=[self.data_name, self.aggregation_level])
         files_exist = self._get_files_in_cur_dir()
         if not files_exist:
             self._empty_folder_run()
