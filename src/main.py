@@ -21,7 +21,7 @@ def main():
     switchers = utils.load_json(
         os.path.join(project_dir, "parameters", "switchers.json")
     )
-    # Creates and run the census processing pipeline
+    # Creates and run the meshblock processing pipeline
     pipeline_locations = Pipeline("meshblocks", params, switchers["meshblocks"])
     pipeline_locations.run()
 

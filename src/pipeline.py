@@ -72,7 +72,6 @@ class Pipeline:
         self.__raw = data_class(**parameters)
         return self.__raw
 
-
     def init_processed(self):
         """Initialize processed class"""
         data_class = self._get_init_function("processed")

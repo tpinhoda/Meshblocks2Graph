@@ -2,7 +2,7 @@
 import os
 import zipfile
 from dataclasses import dataclass
-from urllib.request import  urlretrieve
+from urllib.request import urlretrieve
 from src.data import Data
 
 
@@ -14,15 +14,19 @@ class Raw(Data):
 
     Attributes
     ----------
-        url: The url to collect the raw data
-        html: the html page where the raw data can be downloaded
-        links: list of links to download raw data
+        url: str
+            The url to collect the raw data
+        aggregation_level: str
+            The geographical aggregation level
+        filename: str
+            The donwloaded filename
+
     """
 
     url_data: str = None
     aggregation_level: str = None
     filename: str = None
-    
+
     # Get meshblock files
     def _download_city_meshblock_data(self) -> None:
         """Donwload raw election data"""
@@ -32,9 +36,7 @@ class Raw(Data):
     def _unzip_city_meshblock_data(self) -> None:
         """Unzip only the csv raw data in the current directory"""
         self.logger_info("Unzipping city meshblock file.")
-        with zipfile.ZipFile(
-            os.path.join(self.cur_dir, self.filename), "r"
-        ) as zip_ref:
+        with zipfile.ZipFile(os.path.join(self.cur_dir, self.filename), "r") as zip_ref:
             zip_ref.extractall(self.cur_dir)
 
     def _rename_meshblock_files(self):
@@ -43,9 +45,7 @@ class Raw(Data):
         list_filename = self._get_files_in_cur_dir()
         for filename in list_filename:
             old_name = filename
-            new_name = (
-                f"{self.filename.split('.')[0]}.{filename.split('.')[1]}"
-            )
+            new_name = f"{self.filename.split('.')[0]}.{filename.split('.')[1]}"
             self._rename_file_from_cur_dir(old_name, new_name)
 
     def _remove_city_meshblock_zip_files(self) -> None:
