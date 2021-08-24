@@ -65,7 +65,7 @@ Description of the parameters needed to execute the code.
 
 :warning: The switchers turn on and off the processes of the pipeline, by default let them all turned on (**filled with 1**), so the entire pipeline can be executed.
 
->## Final adjacenty matrix sample
+>## Final graph sample [adj_type = "QUEEN"]
 
 ![Drag Racing](sample_graph.png)
 
@@ -84,9 +84,8 @@ Description of the parameters needed to execute the code.
     │   ├── pipeline.py    <- Pipeline class
     │   ├── main.py    <- Main function
     │   │
-    │   ├── census           <- Scripts to process census data
+    │   ├── meshblocks           <- Scripts to process meshblock data
     │   │   └── raw.py
-    │   │   └── interim.py
     │   │   └── preocessed.py
     │   │
     ├────
