@@ -386,7 +386,6 @@ spyder=5.0.5=py38haa244fe_2
 spyder-kernels=2.0.5=py38haa244fe_0
 sqlalchemy=1.4.23=py38h294d835_0
 sqlite=3.36.0=h8ffe710_0
-src=0.1.1=dev_0
 statsmodels=0.12.2=py38h347fdf6_0
 sympy=1.8=py38haa244fe_0
 tbb=2021.3.0=h2d74725_0
