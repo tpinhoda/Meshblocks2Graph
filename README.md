@@ -51,11 +51,9 @@ Description of the parameters needed to execute the code.
   * **aggregation_level**: Geographical level of data aggregation
 * **meshblocks**: parameters regarding the meshblock data
   * **data_name** The name of the data (Ex: meshblocks)
-  * **url_data** The url folder to download the meshblocks
-  * **filename** The donwloaded filename
   * **id_col** The identification column
   * **renamed_id_col**: The new name of the identification column [Optional]
-  * **typee_adj** The type of graph (QUEEN or INVD)
+  * **type_adj** The type of graph (QUEEN or INVD)
 
 >> ### switchers.json
 
