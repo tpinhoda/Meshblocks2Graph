@@ -8,9 +8,7 @@
     },
     "meshblocks": {
         "data_name": "meshblocks",
-        "url_data": "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2018/Brasil/BR/br_municipios.zip",
-        "filename": "Brazil.zip",
-        "id_col": "CD_GEOCMU",
+        "id_col": "code_muni",
         "renamed_id_col": "[GEO]_ID_CITY",
         "type_adj": "QUEEN"
     }   

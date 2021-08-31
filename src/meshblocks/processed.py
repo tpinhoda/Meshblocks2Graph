@@ -5,7 +5,7 @@ import geopandas as gpd
 import pandas as pd
 from libpysal.weights.contiguity import Queen
 from libpysal.weights import DistanceBand
-from src.data import Data
+from src.data import NAME_MESHBLOCK, Data
 
 
 @dataclass
@@ -39,7 +39,7 @@ class Processed(Data):
         """Return the meshblocks path in the raw state"""
         raw_path = self._get_data_name_folders_path(state="raw")
         return os.path.join(
-            raw_path, self.aggregation_level, f"{self.filename.split('.')[0]}.shp"
+            raw_path, self.aggregation_level,NAME_MESHBLOCK
         )
 
     def _read_meshblock(self):
