@@ -9,11 +9,13 @@ import geobr as gb
 MAP_AGGREGATION_MESHBLOCK = {
     "census tract": gb.read_census_tract,
     "weighting area": gb.read_weighting_area,
-    "neighborhood": gb.read_neighborhood, 
+    "neighborhood": gb.read_neighborhood,
     "city": gb.read_municipality,
     "micro region": gb.read_micro_region,
     "meso region": gb.read_meso_region,
-    "uf": gb.read_state}
+    "uf": gb.read_state,
+}
+
 
 @dataclass
 class Raw(Data):
@@ -35,11 +37,11 @@ class Raw(Data):
     url_data: str = None
     aggregation_level: str = None
     filename: str = None
-    
+
     def get_meshblocks_geobr(self):
         """Donwload meshblocks from geobr package"""
         data = MAP_AGGREGATION_MESHBLOCK[self.aggregation_level](year=int(self.year))
-        data.to_file(os.path.join(self.cur_dir,NAME_MESHBLOCK))
+        data.to_file(os.path.join(self.cur_dir, NAME_MESHBLOCK))
 
     def _download_city_meshblock_data(self) -> None:
         """Donwload raw election data"""
@@ -75,7 +77,7 @@ class Raw(Data):
         self._unzip_city_meshblock_data()
         self._rename_meshblock_files()
         self._remove_city_meshblock_zip_files()
-    
+
     def _empty_folder_run(self):
         """Download and save meshblocks using geobr package"""
         self.get_meshblocks_geobr()

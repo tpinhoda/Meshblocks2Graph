@@ -38,9 +38,7 @@ class Processed(Data):
     def _get_filepath(self):
         """Return the meshblocks path in the raw state"""
         raw_path = self._get_data_name_folders_path(state="raw")
-        return os.path.join(
-            raw_path, self.aggregation_level,NAME_MESHBLOCK
-        )
+        return os.path.join(raw_path, self.aggregation_level, NAME_MESHBLOCK)
 
     def _read_meshblock(self):
         """Read meshblock file"""

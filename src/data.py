@@ -9,6 +9,8 @@ from abc import ABC, abstractmethod
 from typing import List
 
 NAME_MESHBLOCK = "meshblocks.shp"
+
+
 @dataclass
 class Data(ABC):
     """Represents meshblock data.
